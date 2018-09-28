@@ -55,6 +55,7 @@ module "ec2" {
   subnet_id                   = "${element(data.aws_subnet_ids.all.ids, 0)}"
   vpc_security_group_ids      = ["${module.security_group.this_security_group_id}"]
   associate_public_ip_address = true
+  key_name      			  = "${aws_key_pair.generated_key.key_name}"
 }
 
 resource "aws_volume_attachment" "this_ec2" {
@@ -66,4 +67,14 @@ resource "aws_volume_attachment" "this_ec2" {
 resource "aws_ebs_volume" "this" {
   availability_zone = "${module.ec2.availability_zone[0]}"
   size              = 1
+}
+
+resource "tls_private_key" "example" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_key_pair" "generated_key" {
+  key_name   = "${var.key_name}"
+  public_key = "${tls_private_key.example.public_key_openssh}"
 }
