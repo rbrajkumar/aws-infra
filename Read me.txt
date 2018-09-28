@@ -1,0 +1,19 @@
+Read me 
+
+pre-request:
+- install terraform
+- install aws cli and do configure your credentials, this app reads from your .aws folder
+
+Instructions:
+
+- cd <top>/web
+- terraform init
+- terraform init plan (if you wanna skip above or just 'terraform plan')
+- terraform apply - for creating all resources related to EC2
+- terraform destroy - for clean up
+- note: if you feel bugged by command line confirmation, just add '-y' as argument.
+
+Note:
+
+- by default this will create security group with open access, once verified re-assign
+required security group.
