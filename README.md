@@ -9,7 +9,7 @@ Instructions:
 
 - cd <top>/web
 - terraform init
-- terraform init plan (if you wanna skip above or just 'terraform plan')
+- terraform plan (check and verify)
 - terraform apply - for creating all resources related to EC2
 - terraform destroy - for clean up
 - note: if you feel bugged by command line confirmation, just add '-y' as argument.
