@@ -12,9 +12,9 @@ Instructions:
 - terraform plan (check and verify)
 - terraform apply - for creating all resources related to EC2
 - terraform destroy - for clean up
-- note: if you feel bugged by command line confirmation, just add '-y' as argument.
 
 Note:
 
 - by default this will create security group with open access, once verified re-assign
 required security group.
+- if you feel bugged by command line confirmation, just add '-y' as argument.
